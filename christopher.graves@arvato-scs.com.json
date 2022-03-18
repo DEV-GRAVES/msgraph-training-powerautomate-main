@@ -1,0 +1,91 @@
+{
+ "type": "AdaptiveCard",
+ "@odata.type": "#microsoft.graph.user",
+ "body": [
+  {
+   "type": "ColumnSet",
+   "columns": [
+    {
+     "type": "Column",
+     "width": 30,
+     "items": [
+      {
+       "type": "FactSet",
+       "facts": [
+        {
+         "title": "Given name",
+         "value": "${$root.profile.givenName}"
+        },
+        {
+         "title": "Surname",
+         "value": "${$root.profile.surname}"
+        },
+        {
+         "title": "Job title",
+         "value": "${$root.profile.jobTitle}"
+        },
+        {
+         "title": "Office location",
+         "value": "${$root.profile.officeLocation}"
+        },
+        {
+         "title": "Email",
+         "value": "${$root.profile.mail}"
+        }
+       ]
+      },
+      {
+       "type": "TextBlock",
+       "text": "Business phones",
+       "weight": "Bolder"
+      },
+      {
+       "type": "TextBlock",
+       "text": "{$data}",
+       "$data": "${$root.businessPhones}",
+       "spacing": "None"
+      }
+     ]
+    },
+    {
+     "type": "Column",
+     "width": 10,
+     "items": [
+      {
+       "type": "Image",
+       "url": "${$root.profile.profileImage}",
+       "size": "Large",
+       "style": "Person"
+      },
+      {
+       "type": "TextBlock",
+       "weight": "Bolder",
+       "text": "Available",
+       "size": "Small",
+       "color": "Good"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "ActionSet",
+   "actions": [
+    {
+     "type": "Action.Submit",
+     "title": "Works With"
+    },
+    {
+     "type": "Action.Submit",
+     "title": "Peers"
+    },
+    {
+     "type": "Action.Submit",
+     "title": "Manager"
+    }
+   ]
+  }
+ ],
+ "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
+ "version": "1.2"
+}
